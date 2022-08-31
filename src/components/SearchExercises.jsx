@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Box, Typography, TextField, Button, Stack } from '@mui/material'
 
 import { exerciseOptions, fetchData } from '../utils/fetchData';
+import { listeExercises } from "../redux/actions/exercices.actions"
 
 import CategoriesScrollbar from './CategoriesScrollbar';
 
 const SearchExercises = () => {
     const [search, setSearch] = useState("")
-    const [exercises, setExercises] = useState([])
     const [bodyPartSelected, setBodyPartSelected] = useState('')
+
+    const dispatch = useDispatch()
 
     const handleSearch = async() => {
         if(search) {
@@ -21,8 +24,8 @@ const SearchExercises = () => {
                 || exercise.bodyPart.toLowerCase().includes(search)
             )
             
-            setExercises(searchFilter)
             setSearch("")
+            dispatch(listeExercises(searchFilter))
         }
     }
 
