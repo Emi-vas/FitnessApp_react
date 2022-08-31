@@ -2,8 +2,11 @@ import { Box, Typography, Stack, Button } from "@mui/material"
 import { colors } from "../utils/constants";
 
 import HeroBannerImage from "../assets/images/banner.png"
+import { useSelector } from "react-redux";
 
 const HeroBanner = () => {
+    let categorieSelected = useSelector(state => state.categorieSelected)
+
     return (
         <Box 
             sx={{
@@ -44,7 +47,9 @@ const HeroBanner = () => {
                     display: {xs: "none", md: "block"}
                 }}
             >
-                Exercices
+                {
+                    categorieSelected && categorieSelected != "all" ? categorieSelected : "Exercice"
+                }
             </Typography>
 
             <img src={HeroBannerImage} alt="banner" className="hero-banner-img" />
