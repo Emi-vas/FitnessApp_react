@@ -5,11 +5,12 @@ import SearchExercises from "../components/SearchExercises";
 
 const Home = () => {
     return (
-       <Box>
+
+        <Box>
             <HeroBanner />
             <SearchExercises />
             <Exercises />
-       </Box>
+        </Box>
     );
 };
 

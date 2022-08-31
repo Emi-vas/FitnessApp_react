@@ -26,6 +26,9 @@ const SearchExercises = () => {
             
             setSearch("")
             dispatch(listeExercises(searchFilter))
+
+            //go to exercises section
+            document.getElementById("exercises").scrollIntoView({behavior: 'smooth'}, true);
         }
     }
 
@@ -81,10 +84,10 @@ const SearchExercises = () => {
                 sx={{
                     position: "relative",
                     width: "100%",
-                    p: "20px"
+                    p: "20px",
                 }}
             >
-                <CategoriesScrollbar bodyPartSelected={bodyPartSelected} setBodyPartSelected={setBodyPartSelected} />
+                <CategoriesScrollbar />
             </Box>
         </Stack>
     );

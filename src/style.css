@@ -10,7 +10,7 @@ body {
     color: #a23b3b;
     color: #a23b3b;
   }
-  
+/*   
   * {
     padding: 0px;
     margin: 0px;
@@ -20,6 +20,26 @@ body {
   
   ::-webkit-scrollbar {
     width: 0px;
+  } */
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 9px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #a23b3b;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #dc3b3b;
   }
   
   .right-arrow,
@@ -156,4 +176,11 @@ body {
     .exercise-card {
       width: 280px;
     }
+  }
+
+  .categories {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }

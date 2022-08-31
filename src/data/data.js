@@ -1,5 +1,5 @@
 //all exercices (if api is down)
-export const data = [
+export const Data = [
     {
         "bodyPart": "waist",
         "equipment": "body weight",
