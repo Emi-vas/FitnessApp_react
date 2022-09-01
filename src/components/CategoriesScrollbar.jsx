@@ -24,7 +24,7 @@ const CategoriesScrollbar = () => {
     }
 
     const styleCategorie = {
-        backgroundColor: "#ffe6847c",
+        backgroundColor: colors.yellow,
         borderBottomLeftRadius: "20px",
         width: "140px",
         height: "120px",

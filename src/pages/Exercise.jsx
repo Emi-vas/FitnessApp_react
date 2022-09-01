@@ -23,8 +23,7 @@ const Exercise = () => {
 
     return (
         <div>
-            <h1>{exercise.name}</h1>
-            <Details />
+            <Details exercise={exercise} />
             <ExerciseVideo />
             <SimilarExercises />
         </div>
