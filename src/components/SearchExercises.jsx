@@ -24,7 +24,7 @@ const SearchExercises = () => {
                 || exercise.bodyPart.toLowerCase().includes(search)
             )
             
-            setSearch("")
+            //setSearch("")
             dispatch(listeExercises(searchFilter))
 
             //go to exercises section

@@ -8,8 +8,12 @@ import { useEffect } from "react";
 const Exercises = () => {
     const allExercices = Data
     let exercisesFilter = useSelector(state => state.listeExercises)
+    let categorieFilter = useSelector(state => state.categorieSelected)
 
-    
+    useEffect(() => {
+        console.log(categorieFilter)
+    }, [categorieFilter])
+
     return (
         <Box id="exercises"
             mt="50px"
@@ -31,12 +35,16 @@ const Exercises = () => {
             >
                 {
                     exercisesFilter[0] ?
-                        exercisesFilter.map((exercise) => (
-                            <p>{exercise.name}</p>
+                        exercisesFilter
+                        .filter((exercice) => exercice.bodyPart.includes(categorieFilter) || categorieFilter == "all")
+                        .map((exercise, index) => (
+                            <p key={index}>{exercise.name}</p>
                         ))
                     :
-                        allExercices.map((exercise) => (
-                            <p>{exercise.name}</p>
+                        allExercices
+                        .filter((exercice) => exercice.bodyPart.includes(categorieFilter) || categorieFilter == "all")
+                        .map((exercise, index) => (
+                            <p key={index}>{exercise.name}</p>
                         ))
                 }
             </Stack>

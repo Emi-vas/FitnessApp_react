@@ -3,16 +3,27 @@ import { Box, Stack, Typography } from "@mui/material"
 import { useDispatch } from 'react-redux';
 import { useSelector } from "react-redux"
 import { selectCategorie } from '../redux/actions/categorie.action';
+import { listeExercises } from '../redux/actions/exercices.actions';
 
 import Icon from "../assets/icons/gym.png"
 import { colors } from '../utils/constants';
+import { Data } from '../data/data';
+import { useEffect } from 'react';
 
 const CategoriesScrollbar = () => {
     const dispatch = useDispatch()
     const selectedCategorie = useSelector(state => state.categorieSelected)
+    const listeExercisesFull = Data
+
+    const handleClickCategories = (categorie) => {
+        dispatch(selectCategorie(categorie))
+
+        //const listeFiltred = listeExercisesFull.filter((exercise) => exercise.bodyPart.includes(categorie))
+       // dispatch(listeExercises(listeFiltred))
+    }
 
     const styleCategorie = {
-        backgroundColor: "#fff",
+        backgroundColor: "#ffe6847c",
         borderBottomLeftRadius: "20px",
         width: "140px",
         height: "120px",
@@ -37,7 +48,7 @@ const CategoriesScrollbar = () => {
                         itemID={categorie}
                         title={categorie}
                         m="20px"
-                        onClick={() => dispatch(selectCategorie(categorie))}
+                        onClick={() => handleClickCategories(categorie)}
                     >
                         <Stack
                             type="button"
