@@ -4,15 +4,12 @@ import { Box, Stack, Typography } from "@mui/material"
 import { Data } from "../data/data"
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import ExerciseCard from "./ExerciseCard";
 
 const Exercises = () => {
     const allExercices = Data
     let exercisesFilter = useSelector(state => state.listeExercises)
     let categorieFilter = useSelector(state => state.categorieSelected)
-
-    useEffect(() => {
-        console.log(categorieFilter)
-    }, [categorieFilter])
 
     return (
         <Box id="exercises"
@@ -38,13 +35,13 @@ const Exercises = () => {
                         exercisesFilter
                         .filter((exercice) => exercice.bodyPart.includes(categorieFilter) || categorieFilter == "all")
                         .map((exercise, index) => (
-                            <p key={index}>{exercise.name}</p>
+                            <ExerciseCard exercise={exercise} key={index} />
                         ))
                     :
                         allExercices
                         .filter((exercice) => exercice.bodyPart.includes(categorieFilter) || categorieFilter == "all")
                         .map((exercise, index) => (
-                            <p key={index}>{exercise.name}</p>
+                            <ExerciseCard exercise={exercise} key={index} />
                         ))
                 }
             </Stack>
