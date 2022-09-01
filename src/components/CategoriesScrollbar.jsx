@@ -17,6 +17,7 @@ const CategoriesScrollbar = () => {
 
     const handleClickCategories = (categorie) => {
         dispatch(selectCategorie(categorie))
+        document.getElementById("exercises").scrollIntoView({behavior: 'smooth'}, true);
 
         //const listeFiltred = listeExercisesFull.filter((exercise) => exercise.bodyPart.includes(categorie))
        // dispatch(listeExercises(listeFiltred))

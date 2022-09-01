@@ -11,7 +11,23 @@ const Exercises = () => {
     let exercisesFilter = useSelector(state => state.listeExercises)
     let categorieFilter = useSelector(state => state.categorieSelected)
 
+    //Tab with the exercices filter by search and filter
     const [showExercises, setShowExercises] = useState([])
+
+    //Pagination
+    const [currentPage, setcurrentPage] = useState(1)
+    const exercisesPerPage = 9
+    const indexOfLastExercise = currentPage * exercisesPerPage
+    const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage
+    const currentExercises = showExercises.slice(indexOfFirstExercise, indexOfLastExercise)
+
+    const paginate = (e, value) => {
+        setcurrentPage(value)
+
+        //go to exercises section
+        document.getElementById("exercises").scrollIntoView({behavior: 'smooth'}, true);
+    }
+    //--- end Pagination
 
     useEffect(() => {
         let tempTab = []
@@ -21,6 +37,7 @@ const Exercises = () => {
             tempTab = allExercices.filter((exercice) => exercice.bodyPart.includes(categorieFilter) || categorieFilter == "all")
         }
 
+        setcurrentPage(1)
         setShowExercises(tempTab)
     }, [categorieFilter, exercisesFilter])
 
@@ -44,8 +61,8 @@ const Exercises = () => {
                 }}
             >
                 {
-                    showExercises[0] ?
-                    showExercises
+                    currentExercises ?
+                    currentExercises
                         .map((exercise, index) => (
                             <ExerciseCard exercise={exercise} key={index} />
                         ))
@@ -59,9 +76,11 @@ const Exercises = () => {
                 <Pagination
                     color="standard"
                     shape="rounded"
-                >
-
-                </Pagination>
+                    count={Math.ceil(showExercises.length / exercisesPerPage)}
+                    page={currentPage}
+                    onChange={paginate}
+                    size="large"
+                />
             </Stack>
         </Box>
     );

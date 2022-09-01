@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Box, Typography, TextField, Button, Stack } from '@mui/material'
 
@@ -9,8 +9,6 @@ import CategoriesScrollbar from './CategoriesScrollbar';
 
 const SearchExercises = () => {
     const [search, setSearch] = useState("")
-    const [bodyPartSelected, setBodyPartSelected] = useState('')
-
     const dispatch = useDispatch()
 
     const handleSearch = async() => {
