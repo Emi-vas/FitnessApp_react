@@ -3,13 +3,26 @@ import { Box, Stack, Typography } from "@mui/material"
 
 import { Data } from "../data/data"
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ExerciseCard from "./ExerciseCard";
 
 const Exercises = () => {
     const allExercices = Data
     let exercisesFilter = useSelector(state => state.listeExercises)
     let categorieFilter = useSelector(state => state.categorieSelected)
+
+    const [showExercises, setShowExercises] = useState([])
+
+    useEffect(() => {
+        let tempTab = []
+        if(exercisesFilter[0]){
+            tempTab = exercisesFilter.filter((exercice) => exercice.bodyPart.includes(categorieFilter) || categorieFilter == "all")
+        } else {
+            tempTab = allExercices.filter((exercice) => exercice.bodyPart.includes(categorieFilter) || categorieFilter == "all")
+        }
+
+        setShowExercises(tempTab)
+    }, [categorieFilter, exercisesFilter])
 
     return (
         <Box id="exercises"
@@ -20,7 +33,7 @@ const Exercises = () => {
             }}
         >
             <Typography variant="h3" mb="46px">
-                Showing Result
+                Showing Result ({showExercises.length})
             </Typography>
             <Stack
                 direction="row"
@@ -31,18 +44,15 @@ const Exercises = () => {
                 }}
             >
                 {
-                    exercisesFilter[0] ?
-                        exercisesFilter
-                        .filter((exercice) => exercice.bodyPart.includes(categorieFilter) || categorieFilter == "all")
+                    showExercises[0] ?
+                    showExercises
                         .map((exercise, index) => (
                             <ExerciseCard exercise={exercise} key={index} />
                         ))
-                    :
-                        allExercices
-                        .filter((exercice) => exercice.bodyPart.includes(categorieFilter) || categorieFilter == "all")
-                        .map((exercise, index) => (
-                            <ExerciseCard exercise={exercise} key={index} />
-                        ))
+                    : 
+                    <Typography variant="h5">
+                        No Result
+                    </Typography>
                 }
             </Stack>
             <Stack mt="70px" alignItems="center">
