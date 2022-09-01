@@ -106,11 +106,12 @@ body {
     transition: 0.3s all ease-in-out;
   }
   .exercise-card p {
-    color: #777777;
+    color: #ca2e2e;
+    color: #696765;
   }
   
   .exercise-card img {
-    height: 326px;
+    height: 300px;
   }
   
   .bodyPart-card {

@@ -22,16 +22,28 @@ const ExerciseCard = ({ exercise }) => {
                     color="error"
                     sx={{
                         borderRadius: "30px",
-                        ml: "17px"
+                        ml: "17px",
+                        opacity: "0.7"
                     }}
                     onClick={(e) => handleClickFilter(e, exercise.bodyPart)}
                 >
                     {exercise.bodyPart}
                 </Button>
-                <Typography ml="15px">
+                <Typography ml="15px" style={{color: colors.red}}>
                     {exercise.target}
                 </Typography>
             </Stack>
+            <Typography
+                textAlign="center"
+                fontWeight="bold"
+                maxWidth="80%"
+                my="7px"
+                sx={{
+                    margin: "auto"
+                }}
+            >
+                {exercise.name}
+            </Typography>
         </Link>
     );
 };

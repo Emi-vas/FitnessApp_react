@@ -45,6 +45,14 @@ const Exercises = () => {
                         ))
                 }
             </Stack>
+            <Stack mt="70px" alignItems="center">
+                <Pagination
+                    color="standard"
+                    shape="rounded"
+                >
+
+                </Pagination>
+            </Stack>
         </Box>
     );
 };
