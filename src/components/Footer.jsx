@@ -1,10 +1,13 @@
-import React from 'react';
+import { Box, Stack, Typography } from "@mui/material"
+import Logo from "../assets/images/Logo-1.png"
+import { colors } from "../utils/constants";
+
 
 const Footer = () => {
     return (
-        <div>
-            <h2>Footer</h2>
-        </div>
+        <Stack mt="80px" bgcolor={colors.yellow} py="30px" alignItems="center">
+            <img src={Logo} alt="" width="200px" heignt="400px" />
+        </Stack>
     );
 };
 

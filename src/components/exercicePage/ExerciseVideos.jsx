@@ -28,18 +28,35 @@ const ExerciseVideos = ({ exercise }) => {
                 Watch <span style={{ fontWeight: "bold", color: colors.purple, textTransform: "capitalize" }}>{exercise.name}</span> exercise Videos
             </Typography>
             <Stack
-                justifyContent="flexStart"
+                justifyContent="center"
+                direction="row"
                 flexWrap="wrap"
                 alignItems="center"
                 sx={{
-                    flexDirection: {lg: "column"},
                     gap: {xs: "0", lg: "110px"}
                 }}
             >
                 {
                     videosUrl && videosUrl.map((video, index) => (
-                        <a href={"https://www.youtube.com/watch?v=" + video.id.videoId} key={index} target="blank">
-                            <img src={video.snippet.thumbnails.high.url} alt="youtube video" />
+                        <a href={"https://www.youtube.com/watch?v=" + video.id.videoId} key={index} target="blank" style={{ margin: "10px",  width: "300px"}}>
+                            <img 
+                                src={video.snippet.thumbnails.high.url} alt="youtube video" 
+                                style={{
+                                    width: "100%",
+                                    height: "170px",
+                                    objectFit: "cover",
+                                    borderBottomLeftRadius: "30px"
+                                }}
+                            />
+                            <Box>
+                                <Typography
+                                    maxWidth="100%"
+                                    textAlign="center"
+                                    color="black"
+                                >
+                                    {video.snippet.title}
+                                </Typography>
+                            </Box>
                         </a>
                     ))
                 }

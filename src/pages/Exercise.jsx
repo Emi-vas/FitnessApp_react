@@ -6,7 +6,7 @@ import { Data } from "../data/data"
 
 import Details from '../components/exercicePage/Details'
 import ExerciseVideo from '../components/exercicePage/ExerciseVideos'
-import SimilarExercises from '../components/exercicePage/SimilarExercises'
+import Navbar from "../components/Navbar";
 
 const Exercise = () => {
     const { id } = useParams()
@@ -23,9 +23,9 @@ const Exercise = () => {
 
     return (
         <div>
+            <Navbar page="exercise" />
             <Details exercise={exercise} />
             <ExerciseVideo exercise={exercise} />
-            <SimilarExercises exercise={exercise} />
         </div>
     );
 };

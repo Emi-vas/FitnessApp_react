@@ -3,7 +3,7 @@ import { Stack } from "@mui/material"
 
 import Logo from "../assets/images/Logo.png"
 
-const Navbar = () => {
+const Navbar = ({ page }) => {
     return (
         <Stack 
             direction="row"
@@ -26,8 +26,11 @@ const Navbar = () => {
                 fontSize="1.3em"
                 alignItems="flex-end"
             >
-                <Link to="/" style={{ borderBottom: "3px solid #a23b3b" }}>Home</Link>               
-                <a href="#exercises">Exercicses</a>
+                <Link to="/" style={{ borderBottom: page == "home" ? "3px solid #a23b3b" : "" }}>Home</Link>               
+                {
+                    page == "home" ? <a href="#exercises">Exercicses</a> : 
+                    <a style={{ borderBottom: "3px solid #a23b3b"}}>Exercicse</a>
+                }
             </Stack>
         </Stack>
     );

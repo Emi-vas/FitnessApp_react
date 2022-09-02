@@ -9,17 +9,11 @@ body {
     
     color: #a23b3b;
   }
-/*   
+   
   * {
     padding: 0px;
     margin: 0px;
-    box-sizing: border-box;
-  
   }
-  
-  ::-webkit-scrollbar {
-    width: 0px;
-  } */
 
   ::-webkit-scrollbar {
     width: 12px;
