@@ -39,7 +39,7 @@ const Details = ({ exercise }) => {
                     {exercise.name}
                 </Typography>
                 <Typography fontSize="1.1em">
-                    Exercises keep you strong. {exercise.name} is one of the best exercises to target your {exercise.target}. It will help you improve your mood and gain energy
+                    Exercises keep you strong, <strong> {exercise.name}</strong> is one of the best exercises to target your <strong>{exercise.target}</strong>. It will help you improve your mood and gain energy
                 </Typography>
                 {
                     extraDetail.map((elem) => (

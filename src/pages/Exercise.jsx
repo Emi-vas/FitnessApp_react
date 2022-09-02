@@ -24,8 +24,8 @@ const Exercise = () => {
     return (
         <div>
             <Details exercise={exercise} />
-            <ExerciseVideo />
-            <SimilarExercises />
+            <ExerciseVideo exercise={exercise} />
+            <SimilarExercises exercise={exercise} />
         </div>
     );
 };
